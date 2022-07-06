@@ -1,0 +1,16 @@
+C:\Users\wabng\source\repos\startgraphic\startgraphic\bin\Debug\startgraphic.exe.config
+C:\Users\wabng\source\repos\startgraphic\startgraphic\bin\Debug\startgraphic.exe
+C:\Users\wabng\source\repos\startgraphic\startgraphic\bin\Debug\startgraphic.pdb
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic.csproj.AssemblyReference.cache
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic.csproj.SuggestedBindingRedirects.cache
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\MainWindow.g.cs
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\App.g.cs
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic_MarkupCompile.cache
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic_MarkupCompile.lref
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\MainWindow.baml
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic.g.resources
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic.Properties.Resources.resources
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic.csproj.GenerateResource.cache
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic.csproj.CoreCompileInputs.cache
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic.exe
+C:\Users\wabng\source\repos\startgraphic\startgraphic\obj\Debug\startgraphic.pdb

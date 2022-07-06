@@ -1,0 +1,8 @@
+C:\Users\wabng\source\repos\start\start\obj\Debug\start.csproj.AssemblyReference.cache
+C:\Users\wabng\source\repos\start\start\obj\Debug\start.csproj.SuggestedBindingRedirects.cache
+C:\Users\wabng\source\repos\start\start\obj\Debug\start.csproj.CoreCompileInputs.cache
+C:\Users\wabng\source\repos\start\start\bin\Debug\start.exe.config
+C:\Users\wabng\source\repos\start\start\bin\Debug\start.exe
+C:\Users\wabng\source\repos\start\start\bin\Debug\start.pdb
+C:\Users\wabng\source\repos\start\start\obj\Debug\start.exe
+C:\Users\wabng\source\repos\start\start\obj\Debug\start.pdb
