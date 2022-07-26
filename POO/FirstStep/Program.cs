@@ -3,4 +3,6 @@ using CoreEscuela.Entidades;
 
 var escuela = new Escuela("school1",2022);
 escuela.Pais = "Mx";
-Console.WriteLine(escuela.Nombre);
+escuela.Ciudad = "Pue";
+escuela.TipoEscuela = TiposEscuela.Primaria;
+Console.WriteLine(escuela);
