@@ -19,8 +19,19 @@ var otraColeccion = new List<Curso>(){
     new Curso(){Nombre = "501", Jornada = TiposJornada.Manana},
     new Curso(){Nombre = "502", Jornada = TiposJornada.Manana}
 };
-
+Curso tmp = new Curso{Nombre="601",Jornada=TiposJornada.Noche };
 escuela.Cursos.AddRange(otraColeccion);
+escuela.Cursos.Add(tmp);
+ImprimirCursosEscuela(escuela);
+escuela.Cursos.Remove(tmp);
+
+escuela.Cursos.RemoveAll(delegate (Curso cur){
+    return cur.Nombre == "301";
+});
+
+// lambda 
+escuela.Cursos.RemoveAll((cur)=> cur.Nombre == "501"); 
+
 
 ImprimirCursosEscuela(escuela);
 
