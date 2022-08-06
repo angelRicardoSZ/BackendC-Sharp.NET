@@ -5,6 +5,7 @@ using projectone;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<TareasContext>(p => p.UseInMemoryDatabase("TareasDB"));
+builder.Services.AddSqlServer<TareasContext>("Data source");
 
 var app = builder.Build();
 
