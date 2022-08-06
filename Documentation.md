@@ -73,7 +73,7 @@ You can specify a `char` value with:
 
 - a character literal.
 - a Unicode escape sequence, which is `\u` followed by the four-symbol hexadecimal representation of a character code.
-- a hexadecimal escape sequence, which is `\x` followed by the hexadecimal representation of a character code.
+- ### a hexadecimal escape sequence, which is `\x` followed by the hexadecimal representation of a character code.
 
 ```c#
 var chars = new[]
@@ -84,6 +84,56 @@ var chars = new[]
     (char)106,
 };
 Console.WriteLine(string.Join(" ", chars));  // output: j j j j
+```
+
+### Object
+
+The `object` type is an alias for [System.Object](https://docs.microsoft.com/en-us/dotnet/api/system.object) in .NET. In the unified type system of C#, all types, predefined and user-defined, reference types and value types, inherit directly or indirectly from [System.Object](https://docs.microsoft.com/en-us/dotnet/api/system.object). You can assign values of any type to variables of type `object`. Any `object` variable can be assigned to its default value using the literal `null`. When a variable of a value type is converted to object, it's said to be *boxed*. When a variable of type `object` is converted to a value type, it's said to be *unboxed*. For more information, see [Boxing and Unboxing](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/boxing-and-unboxing).
+
+#### Boxing and Unboxing 
+
+Boxing is the process of converting a [value type](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) to the type `object` or to any interface type implemented by this value type. In the following example, the integer variable `i` is *boxed* and assigned to object `o`.
+
+```c#
+int i = 123;
+// The following line boxes i.
+object o = i;
+```
+
+The object `o` can then be unboxed and assigned to integer variable `i`:
+
+```c#
+o = 123;
+i = (int)o;  // unboxing
+```
+
+#### String 
+
+The `string` type represents a sequence of zero or more Unicode characters. `string` is an alias for [System.String](https://docs.microsoft.com/en-us/dotnet/api/system.string) in .NET.
+
+Although `string` is a reference type, the [equality operators `==` and `!=`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators#string-equality) are defined to compare the values of `string` objects, not references. Value based equality makes testing for string equality more intuitive. For example:
+
+```c#
+string a = "hello";
+string b = "h";
+// Append to contents of 'b'
+b += "ello";
+Console.WriteLine(a == b);
+Console.WriteLine(object.ReferenceEquals(a, b));
+```
+
+Strings are *immutable*--the contents of a string object can't be changed after the object is created, although the syntax makes it appear as if you can. For example, when you write this code, the compiler actually creates a new string object to hold the new sequence of characters, and that new object is assigned to `b`. The memory that had been allocated for `b` (when it contained the string "h") is then eligible for garbage collection.
+
+```c#
+string b = "h";
+b += "ello";
+```
+
+The `[]` [operator](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/member-access-operators#indexer-operator-) can be used for readonly access to individual characters of a string. Valid index values start at `0` and must be less than the length of the string:
+
+```c#
+string str = "test";
+char x = str[2];  // x = 's';
 ```
 
 
