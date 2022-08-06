@@ -136,8 +136,6 @@ string str = "test";
 char x = str[2];  // x = 's';
 ```
 
-
-
 ## Conversions
 
 - implicit: no special syntax is required because the conversion is always correct and no data will be lost. examples include conversions from smaller to larger integer types and conversions from derived classes to base classes.
@@ -340,6 +338,211 @@ To initialize a list in C#, the keyword List is used, followed by the type of da
 
 ```c#
 List<string> personNames = new List<string>();
+```
+
+## General Structure of a C# program
+
+C# programs consist of one or more files. Each file contains zero or more namespaces. A namespace contains types such as classes, structs, interfaces, enumerations, and delegates, or other namespaces. The following example is the skeleton of a C# program that contains all of these elements.
+
+```c#
+// A skeleton of a C# program
+using System;
+
+// Your program starts here:
+Console.WriteLine("Hello world!");
+
+namespace YourNamespace
+{
+    class YourClass
+    {
+    }
+
+    struct YourStruct
+    {
+    }
+
+    interface IYourInterface
+    {
+    }
+
+    delegate int YourDelegate();
+
+    enum YourEnum
+    {
+    }
+
+    namespace YourNestedNamespace
+    {
+        struct YourStruct
+        {
+        }
+    }
+}
+```
+
+The preceding example uses *top-level statements* for the program's entry point. This feature was added in C# 9. Prior to C# 9, the entry point was a static method named `Main`, as shown in the following example:
+
+```c#
+// A skeleton of a C# program
+using System;
+namespace YourNamespace
+{
+    class YourClass
+    {
+    }
+
+    struct YourStruct
+    {
+    }
+
+    interface IYourInterface
+    {
+    }
+
+    delegate int YourDelegate();
+
+    enum YourEnum
+    {
+    }
+
+    namespace YourNestedNamespace
+    {
+        struct YourStruct
+        {
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Your program starts here...
+            Console.WriteLine("Hello world!");
+        }
+    }
+}
+```
+
+#### classes
+
+A type that is defined as a [`class`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class) is a *reference type*. At run time, when you declare a variable of a reference type, the variable contains the value [`null`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null) until you explicitly create an instance of the class by using the [`new`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/new-operator) operator, or assign it an object of a compatible type that may have been created elsewhere, as shown in the following example:
+
+```c#
+//Declaring an object of type MyClass.
+MyClass mc = new MyClass();
+
+//Declaring another object of the same type, assigning it the value of the first object.
+MyClass mc2 = mc;
+```
+
+When the object is created, enough memory is allocated on the managed heap for that specific object, and the variable holds only a reference to the location of said object. Types on the managed heap require overhead both when they are allocated and when they are reclaimed by the automatic memory management functionality of the CLR, which is known as *garbage collection*. However, garbage collection is also highly optimized and in most scenarios, it does not create a performance issue. For more information about garbage collection, see [Automatic memory management and garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals).
+
+#### Declaring Classes
+
+Classes are declared by using the `class` keyword followed by a unique identifier, as shown in the following example:
+
+```c#
+//[access modifier] - [class] - [identifier]
+public class Customer
+{
+   // Fields, properties, methods and events go here...
+}
+```
+
+The `class` keyword is preceded by the access level. Because [`public`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/public) is used in this case, anyone can create instances of this class. The name of the class follows the `class` keyword. The name of the class must be a valid C# [identifier name](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names). The remainder of the definition is the class body, where the behavior and data are defined. Fields, properties, methods, and events on a class are collectively referred to as *class members*.
+
+#### Creating objects
+
+Although they are sometimes used interchangeably, a class and an object are different things. A class defines a type of object, but it is not an object itself. An object is a concrete entity based on a class, and is sometimes referred to as an instance of a class.
+
+Objects can be created by using the `new` keyword followed by the name of the class that the object will be based on, like this:
+
+```c#
+Customer object1 = new Customer();
+```
+
+When an instance of a class is created, a reference to the object is passed back to the programmer. In the previous example, `object1` is a reference to an object that is based on `Customer`. This reference refers to the new object but does not contain the object data itself. In fact, you can create an object reference without creating an object at all:
+
+```
+Customer object2;
+```
+
+We don't recommend creating object references such as the preceding one that don't refer to an object because trying to access an object through such a reference will fail at run time. However, such a reference can be made to refer to an object, either by creating a new object, or by assigning it an existing object, such as this:
+
+```c#
+Customer object3 = new Customer();
+Customer object4 = object3;
+```
+
+This code creates two object references that both refer to the same object. Therefore, any changes to the object made through `object3` are reflected in subsequent uses of `object4`. Because objects that are based on classes are referred to by reference, classes are known as reference types.
+
+#### Class inheritance
+
+When you create a class, you can inherit from any other class that is not defined as [`sealed`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/sealed), and other classes can inherit from your class and override class virtual methods. Furthermore, you can implement one or more interfaces.
+
+Inheritance is accomplished by using a *derivation*, which means a class is declared by using a *base class* from which it inherits data and behavior. A base class is specified by appending a colon and the name of the base class following the derived class name, like this:
+
+```c#
+public class Manager : Employee
+{
+    // Employee fields, properties, methods and events are inherited
+    // New Manager fields, properties, methods and events go here...
+}
+```
+
+When a class declares a base class, it inherits all the members of the base class except the constructors.
+
+A class can be declared [`abstract`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract). An abstract class contains abstract methods that have a signature definition but no implementation. Abstract classes cannot be instantiated. They can only be used through derived classes that implement the abstract methods. By contrast, a [sealed](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/sealed) class does not allow other classes to derive from it. 
+
+#### Example
+
+The following example defines a public class that contains an [auto-implemented property](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties), a method, and a special method called a constructor. For more information, see [Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties), [Methods](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods), and [Constructors](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors) articles. The instances of the class are then instantiated with the `new` keyword.
+
+```c#
+using System;
+
+public class Person
+{
+    // Constructor that takes no arguments:
+    public Person()
+    {
+        Name = "unknown";
+    }
+
+    // Constructor that takes one argument:
+    public Person(string name)
+    {
+        Name = name;
+    }
+
+    // Auto-implemented readonly property:
+    public string Name { get; }
+
+    // Method that overrides the base class (System.Object) implementation.
+    public override string ToString()
+    {
+        return Name;
+    }
+}
+class TestPerson
+{
+    static void Main()
+    {
+        // Call the constructor that has no parameters.
+        var person1 = new Person();
+        Console.WriteLine(person1.Name);
+
+        // Call the constructor that has one parameter.
+        var person2 = new Person("Sarah Jones");
+        Console.WriteLine(person2.Name);
+        // Get the string representation of the person2 instance.
+        Console.WriteLine(person2);
+    }
+}
+// Output:
+// unknown
+// Sarah Jones
+// Sarah Jones
 ```
 
 ## Methods
