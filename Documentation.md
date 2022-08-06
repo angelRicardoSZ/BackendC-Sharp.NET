@@ -574,3 +574,81 @@ public class SquareExample
 }
 ```
 
+## namespaces 
+
+Namespaces have the following properties:
+
+- They organize large code projects.
+- They're delimited by using the `.` operator.
+- The `using` directive obviates the requirement to specify the name of the namespace for every class.
+- The `global` namespace is the "root" namespace: `global::System` will always refer to the .NET [System](https://docs.microsoft.com/en-us/dotnet/api/system) namespace.
+
+.NET uses namespaces to organize its many classes, as follows:
+
+```c#
+System.Console.WriteLine("Hello World!");
+```
+
+[System](https://docs.microsoft.com/en-us/dotnet/api/system) is a namespace and [Console](https://docs.microsoft.com/en-us/dotnet/api/system.console) is a class in that namespace. The `using` keyword can be used so that the complete name isn't required, as in the following example:
+
+```
+using System;
+Console.WriteLine("Hello World!");
+```
+
+Second, declaring your own namespaces can help you control the scope of class and method names in larger programming projects. Use the [namespace](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/namespace) keyword to declare a namespace, as in the following example:
+
+```c#
+namespace SampleNamespace
+{
+    class SampleClass
+    {
+        public void SampleMethod()
+        {
+            System.Console.WriteLine(
+                "SampleMethod inside SampleNamespace");
+        }
+    }
+}
+```
+
+Beginning with C# 10, you can declare a namespace for all types defined in that file, as shown in the following example:
+
+```c#
+namespace SampleNamespace;
+
+class AnotherSampleClass
+{
+    public void AnotherSampleMethod()
+    {
+        System.Console.WriteLine(
+            "SampleMethod inside SampleNamespace");
+    }
+}
+```
+
+### Interfaces 
+
+An interface contains definitions for a group of related functionalities that a non-abstract [`class`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class) or a [`struct`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct) must implement. An interface may define `static` methods, which must have an implementation. Beginning with C# 8.0, an interface may define a default implementation for members. An interface may not declare instance data such as fields, auto-implemented properties, or property-like events.
+
+By using interfaces, you can, for example, include behavior from multiple sources in a class. That capability is important in C# because the language doesn't support multiple inheritance of classes. In addition, you must use an interface if you want to simulate inheritance for structs, because they can't actually inherit from another struct or class.
+
+You define an interface by using the [`interface`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface) keyword as the following example shows
+
+```c#
+interface IEquatable<T>
+{
+    bool Equals(T obj);
+}
+```
+
+The name of an interface must be a valid C# [identifier name](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names). By convention, interface names begin with a capital `I`.
+
+#### Interfaces summary
+
+An interface has the following properties:
+
+- In C# versions earlier than 8.0, an interface is like an abstract base class with only abstract members. A class or struct that implements the interface must implement all its members.
+- Beginning with C# 8.0, an interface may define default implementations for some or all of its members. A class or struct that implements the interface doesn't have to implement members that have default implementations. For more information, see [default interface methods](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/default-interface-methods-versions).
+- An interface can't be instantiated directly. Its members are implemented by any class or struct that implements the interface.
+- A class or struct can implement multiple interfaces. A class can inherit a base class and also implement one or more interfaces.
