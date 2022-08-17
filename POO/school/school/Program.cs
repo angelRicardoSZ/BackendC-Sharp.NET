@@ -1,27 +1,21 @@
 ﻿using System;
+using CoresEscuela.Entidades;
 
 namespace school
 {
     internal class Program
-    {   
-        class CoreEscuela
-        {
-            public string nombre;
-
-            public string direccion;
-
-        }
+    {
         static void Main(string[] args)
         {
-            var miEscuela = new CoreEscuela();
+            Console.WriteLine("Hello World!");
 
-            miEscuela.nombre = "School1";
+            var escuela = new Escuela("school 1", 2022);
 
-            miEscuela.direccion = "street";
+            escuela.Pais = "Mx";
 
+            escuela.Ciudad = "Pue";
 
-
-
+            Console.WriteLine(escuela.Nombre);
         }
     }
 }

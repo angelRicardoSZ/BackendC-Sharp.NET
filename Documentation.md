@@ -476,6 +476,49 @@ Customer object4 = object3;
 
 This code creates two object references that both refer to the same object. Therefore, any changes to the object made through `object3` are reflected in subsequent uses of `object4`. Because objects that are based on classes are referred to by reference, classes are known as reference types.
 
+## Constructors 
+
+Whenever a [class](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class) or [struct](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct) is created, its constructor is called. A class or struct may have multiple constructors that take different arguments. Constructors enable the programmer to set default values, limit instantiation, and write code that is flexible and easy to read. 
+
+### Constructor syntax
+
+A constructor is a method whose name is the same as the name of its type. Its method signature includes only an optional [access modifier](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers), the method name and its parameter list; it does not include a return type. The following example shows the constructor for a class named `Person`.
+
+```c#
+public class Person
+{
+   private string last;
+   private string first;
+
+   public Person(string lastName, string firstName)
+   {
+      last = lastName;
+      first = firstName;
+   }
+
+   // Remaining implementation of Person class.
+}
+```
+
+If a constructor can be implemented as a single statement, you can use an [expression body definition](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members). The following example defines a `Location` class whose constructor has a single string parameter named *name*. The expression body definition assigns the argument to the `locationName` field.
+
+```c#
+public class Location
+{
+   private string locationName;
+
+   public Location(string name) => Name = name;
+
+   public string Name
+   {
+      get => locationName;
+      set => locationName = value;
+   }
+}
+```
+
+
+
 #### Class inheritance
 
 When you create a class, you can inherit from any other class that is not defined as [`sealed`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/sealed), and other classes can inherit from your class and override class virtual methods. Furthermore, you can implement one or more interfaces.
