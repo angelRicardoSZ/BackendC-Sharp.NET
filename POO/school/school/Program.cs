@@ -15,7 +15,9 @@ namespace school
 
             escuela.Ciudad = "Pue";
 
-            Console.WriteLine(escuela.Nombre);
+            escuela.TipoEscuela = TiposEscuela.Primaria;
+
+            Console.WriteLine(escuela);
         }
     }
 }
