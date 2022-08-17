@@ -9,13 +9,9 @@ namespace school
         {
             Console.WriteLine("Hello World!");
 
-            var escuela = new Escuela("school 1", 2022);
+            var escuela = new Escuela("school 1", 2022, TiposEscuela.Primaria, ciudad:"TLX");
 
             escuela.Pais = "Mx";
-
-            escuela.Ciudad = "Pue";
-
-            escuela.TipoEscuela = TiposEscuela.Primaria;
 
             Console.WriteLine(escuela);
         }
