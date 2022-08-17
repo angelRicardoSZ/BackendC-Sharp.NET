@@ -695,3 +695,39 @@ An interface has the following properties:
 - Beginning with C# 8.0, an interface may define default implementations for some or all of its members. A class or struct that implements the interface doesn't have to implement members that have default implementations. For more information, see [default interface methods](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/default-interface-methods-versions).
 - An interface can't be instantiated directly. Its members are implemented by any class or struct that implements the interface.
 - A class or struct can implement multiple interfaces. A class can inherit a base class and also implement one or more interfaces.
+
+### The Do/While Loop
+
+This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+
+```csharp
+do 
+{
+  // code block to be executed
+}
+while (condition);
+```
+
+example
+
+```c#
+using System;
+
+namespace MyApplication
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      int i = 0;
+      do 
+      {
+        Console.WriteLine(i);
+        i++;
+      }
+      while (i < 5);
+    }
+  }
+}
+```
+
