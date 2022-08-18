@@ -779,3 +779,150 @@ namespace MyApplication
 }
 ```
 
+### Lambda Expressions 
+
+Lambda expressions in C# are used like [anonymous functions](https://www.geeksforgeeks.org/anonymous-method-in-c-sharp/), with the difference that in Lambda expressions you don’t need to specify the type of the value that you input thus making it more flexible to use. 
+The ‘=>’ is the lambda operator which is used in all lambda expressions. The Lambda expression is divided into two parts, the left side is the input and the right is the expression
+
+**The Lambda Expressions can be of two types:** 
+
+- **Expression Lambda:** Consists of the input and the expression.
+  *Syntax:*
+
+  ```c#
+  input => expression;
+  ```
+
+- **Statement Lambda:** Consists of the input and a set of statements to be executed.
+  *Syntax:*
+
+  ```c#
+  input => { statements };
+  ```
+
+**Example 1:** In the code given below, we have a list of integer numbers. The first lambda expression evaluates every element’s square { x => x*x } and the second is used to find which values are divisible by 3 { x => (x % 3) == 0 }. And the foreach loops are used for displaying.
+
+```c#
+// C# program to illustrate the
+// Lambda Expression
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Lambda_Expressions {
+class Program {
+	static void Main(string[] args)
+	{
+		// List to store numbers
+		List<int> numbers = new List<int>() {36, 71, 12,
+							15, 29, 18, 27, 17, 9, 34};
+
+		// foreach loop to display the list
+		Console.Write("The list : ");
+		foreach(var value in numbers)
+		{
+			Console.Write("{0} ", value);
+		}
+		Console.WriteLine();
+
+		// Using lambda expression
+		// to calculate square of
+		// each value in the list
+		var square = numbers.Select(x => x * x);
+
+		// foreach loop to display squares
+		Console.Write("Squares : ");
+		foreach(var value in square)
+		{
+			Console.Write("{0} ", value);
+		}
+		Console.WriteLine();
+
+		// Using Lambda expression to
+		// find all numbers in the list
+		// divisible by 3
+		List<int> divBy3 = numbers.FindAll(x => (x % 3) == 0);
+
+		// foreach loop to display divBy3
+		Console.Write("Numbers Divisible by 3 : ");
+		foreach(var value in divBy3)
+		{
+			Console.Write("{0} ", value);
+		}
+		Console.WriteLine();
+	}
+}
+}
+```
+
+Output
+
+```c#
+The list : 36 71 12 15 29 18 27 17 9 34 
+Squares : 1296 5041 144 225 841 324 729 289 81 1156 
+Numbers Divisible by 3 : 36 12 15 18 27 9 
+```
+
+**Example 2:** Lambda expressions can also be used with user-defined classes. The code given below shows how to sort through a list based on an attribute of the class that the list is defined upon.
+
+```c#
+// C# program to illustrate the
+// Lambda Expression
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+// User defined class Student
+class Student {
+	
+	// properties rollNo and name
+	public int rollNo
+	{
+		get;
+		set;
+	}
+	
+	public string name
+	{
+		get;
+		set;
+	}
+}
+
+class GFG {
+	
+	// Main Method
+	static void Main(string[] args)
+	{
+		// List with eah element of type Student
+		List<Student> details = new List<Student>() {
+			new Student{ rollNo = 1, name = "Liza" },
+				new Student{ rollNo = 2, name = "Stewart" },
+				new Student{ rollNo = 3, name = "Tina" },
+				new Student{ rollNo = 4, name = "Stefani" },
+				new Student { rollNo = 5, name = "Trish" }
+		};
+
+		// To sort the details list
+		// based on name of student
+		// in ascending order
+		var newDetails = details.OrderBy(x => x.name);
+
+		foreach(var value in newDetails)
+		{
+			Console.WriteLine(value.rollNo + " " + value.name);
+		}
+	}
+}
+```
+
+Output
+
+```
+1 Liza
+4 Stefani
+2 Stewart
+3 Tina
+5 Trish
+```
+
