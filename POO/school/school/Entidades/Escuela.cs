@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CoresEscuela.Entidades
 {
     class Escuela
@@ -18,7 +20,8 @@ namespace CoresEscuela.Entidades
 
         public TiposEscuela TipoEscuela {get; set;}
 
-        public Curso[] Cursos {get; set;}
+        // public Curso[] Cursos {get; set;}
+        public List<Curso> Cursos {get; set;}
 
         public Escuela(string nombre, int year) => (Nombre, YearOfCreation) = (nombre,year);
 

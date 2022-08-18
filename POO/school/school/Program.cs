@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CoresEscuela.Entidades;
 using static System.Console;
 
@@ -13,22 +14,32 @@ namespace school
 
             escuela.Pais = "Mx";
 
-            Curso[] arregloCursos = {
-                            new Curso()
-                                    {
-                                        Nombre="101"},
-                            new Curso()
-                            {
-                                Nombre = "201"
-                            },
-                            new Curso()
-                            {
-                                Nombre = "301"
-                            },
+
+            var listaCursos = new List<Curso>(){
+                            new Curso(){Nombre = "101"},
+                            new Curso(){Nombre = "201"},
+                            new Curso(){Nombre = "301"},
             };
 
-            escuela.Cursos = arregloCursos;
 
+            
+            
+            // Curso[] arregloCursos = {
+            //                 new Curso()
+            //                         {
+            //                             Nombre="101"},
+            //                 new Curso()
+            //                 {
+            //                     Nombre = "201"
+            //                 },
+            //                 new Curso()
+            //                 {
+            //                     Nombre = "301"
+            //                 },
+            // };
+
+            // escuela.Cursos = arregloCursos;
+            escuela.Cursos =listaCursos;
             
 
             // escuela.Cursos = new Curso[] {

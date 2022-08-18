@@ -670,6 +670,46 @@ class AnotherSampleClass
 }
 ```
 
+### Collections 
+
+For many applications, you want to create and manage groups of related objects. There are two ways to group objects: by creating arrays of objects, and by creating collections of objects
+
+A collection is a class, so you must declare an instance of the class before you can add elements to that collection.
+
+Many common collections are provided by .NET. Each type of collection is designed for a specific purpose.
+
+Some of the common collection classes are described in this section:
+
+- [System.Collections.Generic](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic) classes
+- [System.Collections.Concurrent](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent) classes
+- [System.Collections](https://docs.microsoft.com/en-us/dotnet/api/system.collections) classes
+
+You can create a generic collection by using one of the classes in the [System.Collections.Generic](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic) namespace. A generic collection is useful when every item in the collection has the same data type. A generic collection enforces strong typing by allowing only the desired data type to be added.
+
+The following table lists some of the frequently used classes of the [System.Collections.Generic](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic) namespace:
+
+| **Class**               | **Description**                                              |
+| ----------------------- | ------------------------------------------------------------ |
+| Dictionary<TKey,TValue> | Represents a collection of key/value pairs that are organized based on the key. |
+| List<T>                 | Represents a list of objects that can be accessed by index. Provides methods to search, sort, and modify lists. |
+| Queue<T>                | Represents a first in, first out (FIFO) collection of objects |
+| SortedList<TKey,TValue> | Represents a collection of key/value pairs that are sorted by key based on the associated [IComparer](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.icomparer-1) implementation. |
+| Stack<T>                | Represents a last in, first out (LIFO) collection of objects. |
+
+### List<T> Class
+
+Represents a strongly typed list of objects that can be accessed by index. Provides methods to search, sort, and manipulate lists.
+
+```c#
+public class List<T> : System.Collections.Generic.ICollection<T>, System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IList<T>, System.Collections.Generic.IReadOnlyCollection<T>, System.Collections.Generic.IReadOnlyList<T>, System.Collections.IList
+```
+
+#### Type Parameters
+
+The type of elements in the list.
+
+
+
 ### Interfaces 
 
 An interface contains definitions for a group of related functionalities that a non-abstract [`class`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class) or a [`struct`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct) must implement. An interface may define `static` methods, which must have an implementation. Beginning with C# 8.0, an interface may define a default implementation for members. An interface may not declare instance data such as fields, auto-implemented properties, or property-like events.
