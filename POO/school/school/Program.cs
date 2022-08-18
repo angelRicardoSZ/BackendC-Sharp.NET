@@ -27,14 +27,22 @@ namespace school
             var otrosCursos = new List<Curso>(){
                 new Curso(){Nombre = "401",Jornada = TiposJornada.Morning},
                 new Curso(){Nombre = "501",Jornada = TiposJornada.Morning},
-                new Curso(){Nombre = "501",Jornada = TiposJornada.Morning},
+                new Curso(){Nombre = "501",Jornada = TiposJornada.Night},
             };
 
-            Predicate<Curso>miAlgoritmo = Predicado;
-            
-            escuela.Cursos.RemoveAll(miAlgoritmo);
-            
             escuela.Cursos.AddRange(otrosCursos);
+            
+
+
+
+            // delete using predicate
+            //escuela.Cursos.RemoveAll(Predicado);
+
+            // Another way to delete: Delegate
+            // escuela.Cursos.RemoveAll(delegate(Curso cur){return cur.Nombre == "301";} );
+
+            // Another way to delete: Lambda functions
+            //escuela.Cursos.RemoveAll((cur)=> cur.Nombre == "501" && cur.Jornada == TiposJornada.Morning);
             
             ImprimirCursosEscuela(escuela);
 
@@ -54,9 +62,9 @@ namespace school
                 }
 
             }
-        private static bool Predicado(Curso cur)
-        {
-            return cur.Nombre == "301" ;
-        }
+        // private static bool Predicado(Curso cur)
+        // {
+        //     return cur.Nombre == "301" ;
+        // }
     }
 }

@@ -708,6 +708,14 @@ public class List<T> : System.Collections.Generic.ICollection<T>, System.Collect
 
 The type of elements in the list.
 
+## Methods
+
+| [Add(T)](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.add?view=net-6.0#system-collections-generic-list-1-add(-0)) | Adds an object to the end of the [List<T>](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-6.0). |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [AddRange(IEnumerable<T>)](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.addrange?view=net-6.0#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0))) | Adds the elements of the specified collection to the end of the [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-6.0). |
+| [Remove(T)](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.remove?view=net-6.0#system-collections-generic-list-1-remove(-0)) | Removes the first occurrence of a specific object from the [Lis<T>t](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-6.0). |
+| [RemoveAll(Predicate<T>)](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.removeall?view=net-6.0#system-collections-generic-list-1-removeall(system-predicate((-0)) | Removes all the elements that match the conditions defined by the specified predicate. |
+
 
 
 ### Interfaces 
