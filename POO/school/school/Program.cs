@@ -14,15 +14,11 @@ namespace school
 
             escuela.Pais = "Mx";
 
-
             var listaCursos = new List<Curso>(){
-                            new Curso(){Nombre = "101"},
-                            new Curso(){Nombre = "201"},
-                            new Curso(){Nombre = "301"},
-            };
-
-
-            
+                            new Curso(){Nombre = "101",Jornada = TiposJornada.Morning},
+                            new Curso(){Nombre = "201",Jornada = TiposJornada.Morning},
+                            new Curso(){Nombre = "301",Jornada = TiposJornada.Morning},
+            };        
             
             // Curso[] arregloCursos = {
             //                 new Curso()
@@ -40,8 +36,16 @@ namespace school
 
             // escuela.Cursos = arregloCursos;
             escuela.Cursos =listaCursos;
-            
 
+            escuela.Cursos.Add( new Curso {Nombre="102", Jornada = TiposJornada.afternoon});
+            
+            var otrosCursos = new List<Curso>(){
+                            new Curso(){Nombre = "401",Jornada = TiposJornada.Morning},
+                            new Curso(){Nombre = "501",Jornada = TiposJornada.Morning},
+                            new Curso(){Nombre = "501",Jornada = TiposJornada.Morning},
+            };
+
+             escuela.Cursos.AddRange(otrosCursos);
             // escuela.Cursos = new Curso[] {
             //                 new Curso()
             //                         {
