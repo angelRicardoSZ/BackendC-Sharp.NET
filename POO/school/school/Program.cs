@@ -1,36 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using CoresEscuela.Entidades;
 using static System.Console;
 
-namespace school
+namespace CoresEscuela
 {
     class Program
     {
         static void Main(string[] args)
         {
+            var engine = new EscuelaEngine();
+            engine.Inicializar();
+            // var escuela = new Escuela("school 1", 2022, TiposEscuela.Primaria, ciudad: "TLX");
 
-            var escuela = new Escuela("school 1", 2022, TiposEscuela.Primaria, ciudad: "TLX");
+            // escuela.Pais = "Mx";
 
-            escuela.Pais = "Mx";
+            // var listaCursos = new List<Curso>(){
+            //                 new Curso(){Nombre = "101",Jornada = TiposJornada.Morning},
+            //                 new Curso(){Nombre = "201",Jornada = TiposJornada.Morning},
+            //                 new Curso(){Nombre = "301",Jornada = TiposJornada.Morning},
+            // };        
 
-            var listaCursos = new List<Curso>(){
-                            new Curso(){Nombre = "101",Jornada = TiposJornada.Morning},
-                            new Curso(){Nombre = "201",Jornada = TiposJornada.Morning},
-                            new Curso(){Nombre = "301",Jornada = TiposJornada.Morning},
-            };        
+            // escuela.Cursos =listaCursos;
 
-            escuela.Cursos =listaCursos;
-
-            escuela.Cursos.Add( new Curso {Nombre="102", Jornada = TiposJornada.afternoon});
+            // escuela.Cursos.Add( new Curso {Nombre="102", Jornada = TiposJornada.afternoon});
             
-            var otrosCursos = new List<Curso>(){
-                new Curso(){Nombre = "401",Jornada = TiposJornada.Morning},
-                new Curso(){Nombre = "501",Jornada = TiposJornada.Morning},
-                new Curso(){Nombre = "501",Jornada = TiposJornada.Night},
-            };
+            // var otrosCursos = new List<Curso>(){
+            //     new Curso(){Nombre = "401",Jornada = TiposJornada.Morning},
+            //     new Curso(){Nombre = "501",Jornada = TiposJornada.Morning},
+            //     new Curso(){Nombre = "501",Jornada = TiposJornada.Night},
+            // };
 
-            escuela.Cursos.AddRange(otrosCursos);
+            // escuela.Cursos.AddRange(otrosCursos);
             
 
 
@@ -44,7 +45,7 @@ namespace school
             // Another way to delete: Lambda functions
             //escuela.Cursos.RemoveAll((cur)=> cur.Nombre == "501" && cur.Jornada == TiposJornada.Morning);
             
-            ImprimirCursosEscuela(escuela);
+            ImprimirCursosEscuela(engine.Escuela);
 
         }
         private static void ImprimirCursosEscuela(Escuela escuela)
