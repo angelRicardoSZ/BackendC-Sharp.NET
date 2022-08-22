@@ -1,6 +1,7 @@
 ﻿using System;
 
 using CoresEscuela.Entidades;
+using CoresEscuela.Util;
 using static System.Console;
 
 namespace CoresEscuela
@@ -45,14 +46,15 @@ namespace CoresEscuela
             // Another way to delete: Lambda functions
             //escuela.Cursos.RemoveAll((cur)=> cur.Nombre == "501" && cur.Jornada == TiposJornada.Morning);
             
+            Printer.WriteTitle("Bienvenidos a la escuela");
             ImprimirCursosEscuela(engine.Escuela);
 
         }
         private static void ImprimirCursosEscuela(Escuela escuela)
             {
-                WriteLine("=================");
-                WriteLine("Cursos de la Escuela");
-                WriteLine("=================");
+
+                Printer.WriteTitle("Cursos escuela");
+
 
                 if( escuela?.Cursos != null) 
                 {
