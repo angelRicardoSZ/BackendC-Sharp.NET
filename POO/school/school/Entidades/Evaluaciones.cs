@@ -15,5 +15,10 @@ namespace CoresEscuela.Entidades
         public float Nota {get; set;}
 
         public Evaluaciones() => UniqueId = Guid.NewGuid().ToString();
+
+        public override string ToString()
+        {
+            return $"{Nota}, {Alumno.Nombre}, {Asignatura.Nombre}";
+        }
     }
 }

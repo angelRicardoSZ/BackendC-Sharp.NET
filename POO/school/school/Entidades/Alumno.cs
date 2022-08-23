@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 namespace CoresEscuela.Entidades
 {
     public class Alumno
@@ -8,6 +8,12 @@ namespace CoresEscuela.Entidades
 
         public string Nombre { get; set; }
 
-        public Alumno() => UniqueId = Guid.NewGuid().ToString();
+        public List<Evaluaciones> Evaluaciones { get; set; }
+
+        public Alumno()
+            {
+            UniqueId = Guid.NewGuid().ToString();
+            Evaluaciones = new List<Evaluaciones>(){};
+        } 
     }
 }

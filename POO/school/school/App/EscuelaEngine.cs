@@ -21,13 +21,43 @@ namespace CoresEscuela
             Escuela = new Escuela("school 1", 2022, TiposEscuela.Primaria, pais: "MX", ciudad: "TLX");
             cargarCursos();
             cargarAsignaturas();
-
             cargarEvaluaciones();
         }
 
         private void cargarEvaluaciones()
         {
-            throw new NotImplementedException();
+            // obtner el alumno: alumnoX
+            // for each alumno in  escuela.curso.alumnos:
+            // crear 5 numeros aleatorios
+            // asingar a sus evaluaciones
+            // obtner las asignaturas de alumnoX
+            // para cada asignatura, crear una evaluacin
+            // para ello crear un numero aleatorio flotante entre 0.0 y 5.0
+            // 
+
+            // solution
+            foreach (var curso in Escuela.Cursos)
+            {
+                foreach (var asignatura in curso.Asignaturas)
+                {
+                    foreach (var alumno in curso.Alumnos)
+                    {
+                        var rnd = new Random(System.Environment.TickCount);
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            var ev = new Evaluaciones
+                            {
+                                Asignatura = asignatura,
+                                Nombre = $"{asignatura.Nombre} Ev#{i+1}",
+                                Nota = (float)(5 * rnd.NextDouble()),
+                                Alumno = alumno
+                            };
+                            alumno.Evaluaciones.Add(ev);
+                        }
+                    }
+                }
+            }
         }
 
         private void cargarAsignaturas()
